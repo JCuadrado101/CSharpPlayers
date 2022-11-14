@@ -1,4 +1,6 @@
-﻿// Challenge: Buying Inventory
+﻿// Challenge: Buying Inventory + Challenge: Discounted Inventory
+
+
 
 Console.WriteLine(
     "The following items are available: \n " +
@@ -11,25 +13,41 @@ Console.WriteLine(
     "7 - Food Supplies \n"
     );
 
+
+
 Console.Write("What numbers do you want to see the price of? ");
 int input = int.Parse(Console.ReadLine());
+Console.WriteLine("What is your name? ");
+string name = Console.ReadLine().ToLower();
+
+float discount = name == "jordan" ? 2 : 1;
+
+var rope = 10 / discount;
+var torches = 15 / discount;
+var climbingEquipment = 25 / discount;
+var cleanWater = 1 / discount;
+var machete = 20 / discount;
+var canoe = 200 / discount;
+var foodSupplies = 1 / discount;
 
 switch (input)
 {
-    case 1: Console.WriteLine("Rope: 10 gold");
+    case 1: Console.WriteLine($"Rope: {rope} gold");
         break;
-    case 2: Console.WriteLine("Torches: 15 gold");
+    case 2: Console.WriteLine($"Torches: {torches} gold");
         break;
-    case 3: Console.WriteLine("Climbing Equipment: 25 gold");
+    case 3: Console.WriteLine($"Climbing Equipment: {climbingEquipment} gold");
         break;
-    case 4: Console.WriteLine("Clean Water: 1 gold");
+    case 4: Console.WriteLine($"Clean Water: {cleanWater} gold");
         break;
-    case 5: Console.WriteLine("Machete: 20 gold");
+    case 5: Console.WriteLine($"Machete: {machete} gold");
         break;
-    case 6: Console.WriteLine("Canoe: 200 gold");
+    case 6: Console.WriteLine($"Canoe: {canoe} gold");
         break;
-    default: Console.WriteLine("Food Supplies: 1 gold");
+    default: Console.WriteLine($"Food Supplies: {foodSupplies} gold");
         break;
 }
 
     
+
+
