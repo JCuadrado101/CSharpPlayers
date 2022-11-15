@@ -33,3 +33,14 @@ int AskForNumberInRange(string text, int min, int max)
             return number;
     }
 }
+
+// Challenge: Countdown
+
+void Recursion(int number)
+{
+    if (number == 0) return;
+    Console.WriteLine(number);
+    Recursion(number - 1);
+}
+
+Recursion(10);
