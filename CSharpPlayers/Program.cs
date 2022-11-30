@@ -49,9 +49,13 @@ float GetLength()
 
 class Arrow
 {
-    public Arrowhead _arrowhead;
-    public Fletching _fletching;
-    public float _length;
+    private Arrowhead _arrowhead;
+    private Fletching _fletching;
+    private float _length;
+
+    public Arrowhead GetArrow() => _arrowhead;
+    public Fletching GetFletching() => _fletching;
+    public float GetLength() => _length;
 
     public Arrow(Arrowhead arrowhead, Fletching fletching, float length)
     {
