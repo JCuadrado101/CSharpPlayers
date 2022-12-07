@@ -21,30 +21,64 @@
 
 // The Color
 
-Color customColor = new Color(153, 128, 32);
-Color selectedColor = Color.Orange;
+// Color customColor = new Color(153, 128, 32);
+// Color selectedColor = Color.Orange;
+//
+// Console.WriteLine($"({selectedColor.R}, {selectedColor.G}, {selectedColor.B})");
+//
+// class Color
+// {
+//     public int R { get; }
+//     public int G { get; }
+//     public int B { get; }
+//
+//     public Color(int r, int g, int b)
+//     {
+//         R = r;
+//         G = g;
+//         B = b;
+//     }
+//
+//     public static Color White { get; } = new Color(255, 255, 255);
+//     public static Color Black {get;} = new Color(0, 0, 0);
+//     public static Color Red { get; } = new Color(255, 0, 0);
+//     public static Color Orange {get;} =  new Color(255, 165, 0);
+//     public static Color Yellow {get;} =  new Color(255, 255, 0);
+//     public static Color Green {get;} = new Color(0, 128, 0);
+//     public static Color Blue {get;} = new Color(0, 0, 255);
+//     public static Color Purple {get;} =  new Color(128, 0, 128);
+// }
 
-Console.WriteLine($"({selectedColor.R}, {selectedColor.G}, {selectedColor.B})");
+// The Card
 
-class Color
+Color[] colors = { Color.Red, Color.Green, Color.Blue, Color.Yellow };
+Rank[] ranks = { Rank.One, Rank.Two, Rank.Three, Rank.Four, Rank.Five, Rank.Six, Rank.Seven, Rank.Eight, Rank.Nine, Rank.Ten, Rank.DollarSign, Rank.Percent, Rank.Caret, Rank.Ampersand };
+
+foreach (Color color in colors)
 {
-    public int R { get; }
-    public int G { get; }
-    public int B { get; }
-
-    public Color(int r, int g, int b)
+    foreach (Rank rank in ranks)
     {
-        R = r;
-        G = g;
-        B = b;
+        Card card = new Card(rank, color);
+        Console.WriteLine($"The {card.Color} {card.Rank}");
+    }
+}
+
+
+
+public class Card
+{
+    public Rank Rank { get; }
+    public Color Color { get; }
+
+    public Card(Rank rank, Color color)
+    {
+        Rank = rank;
+        Color = color;
     }
 
-    public static Color White { get; } = new Color(255, 255, 255);
-    public static Color Black {get;} = new Color(0, 0, 0);
-    public static Color Red { get; } = new Color(255, 0, 0);
-    public static Color Orange {get;} =  new Color(255, 165, 0);
-    public static Color Yellow {get;} =  new Color(255, 255, 0);
-    public static Color Green {get;} = new Color(0, 128, 0);
-    public static Color Blue {get;} = new Color(0, 0, 255);
-    public static Color Purple {get;} =  new Color(128, 0, 128);
+    public bool IsSymbol => Rank == Rank.Ampersand || Rank == Rank.Caret || Rank == Rank.DollarSign || Rank == Rank.Percent;
+    public bool IsNumber => !IsSymbol;
 }
+
+public enum Color { Red, Green, Blue, Yellow }
+public enum Rank { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, DollarSign, Percent, Caret, Ampersand }
